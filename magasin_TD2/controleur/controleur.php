@@ -2,10 +2,10 @@
 require_once "modele/article.class.php";
 require_once "modele/client.class.php";
 require_once "modele/commande.class.php";
-require_once "vue/vue.class.php";
-require_once "controleur/ctlArticle.php";
-require_once "controleur/ctlClient.php";
-require_once "controleur/ctlCommande.php";
+require_once "controleur/ctlArticle.class.php";
+require_once "controleur/ctlClient.class.php";
+require_once "controleur/ctlCommande.class.php";
+require_once "controleur/ctlPage.class.php";
 
 /*******************************************************
 Affichage de la page d'accueil du site
@@ -16,8 +16,8 @@ Affichage de la page d'accueil du site
  *******************************************************/
 function accueil()
 {
-  $vue = new vue("Accueil");
-  $vue->afficher(array("accueil"));
+  $ctlPage = new ctlPage();
+  $ctlPage->accueil();
 }
 
 
@@ -88,5 +88,6 @@ Affichage d'une page d'erreur
  *******************************************************/
 function erreur($message)
 {
-  require "vue/vueErreur.php";
-}   // Balise PHP non fermée pour éviter de retourner des caractères "parasites" en fin de traitement
+  $ctlPage = new ctlPage();
+  $ctlPage->erreur($message);
+}
