@@ -16,4 +16,6 @@ class ctlPage
         $page = new vue("Erreur");
         $page->afficher(array("message" => $message));
     }
+
+    
 }
