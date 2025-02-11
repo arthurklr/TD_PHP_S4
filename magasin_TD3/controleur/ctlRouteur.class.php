@@ -1,5 +1,4 @@
 <?php
-require_once "vue/vue.class.php";
 require_once "ctlClient.class.php";
 require_once "ctlArticle.class.php";
 require_once "ctlCommande.class.php";
