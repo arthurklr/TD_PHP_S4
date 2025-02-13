@@ -32,10 +32,10 @@ class vue {
   *******************************************************/
   public function afficher($data) {
     global $Conf;
-    $title = $Conf->TITREONGLET;
-    $header = $Conf->NOMSITE;
+    $title = Config::TITRE_ONGLET;
+    $header = Config::NOM_SITE;
 //    $titre = "";      // Le titre de la page est généré dans le fichierVue
-    $menu = $Conf->MENU;
+    $menu = Config::$MENU;
 
     extract($data);   // Extrait les valeurs du tableau associatif $data dans des variables
 
