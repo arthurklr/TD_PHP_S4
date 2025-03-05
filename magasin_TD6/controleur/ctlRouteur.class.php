@@ -44,6 +44,9 @@ class Routeur
                     case "ajoutClient":
                         $this->ctlClient->ajoutClient();
                         break;
+                    case "enregClient":
+                        $this->ctlClient->enregClient();
+                        break;
                     default:
                         throw new Exception("Action non valide");
                 }

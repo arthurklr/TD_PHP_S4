@@ -36,9 +36,14 @@ abstract class database
   protected function execReqPrep($req, $data)
   {
     $reponse = $this->connexionBDD()->prepare($req);
-    $reponse->execute($data);
-    $resultat = $reponse->fetchAll(PDO::FETCH_ASSOC);
-    return $resultat;
+    if ($reponse->execute($data)) {
+      $resultat = $reponse->fetchAll(PDO::FETCH_ASSOC);
+      if (!empty($resultat))
+        return $resultat; // Résultat de la requête dans un tab. assoc.
+      else
+        return $reponse->rowCount(); // Nombre de lignes modifiées par la requête
+    }
+    return FALSE; // Erreur lors de l'exécution de la requête
   }
 
   /*******************************************************
